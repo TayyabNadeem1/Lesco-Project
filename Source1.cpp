@@ -1,47 +1,95 @@
-#include<iostream>
-#include<fstream>
-#include<string>
-using namespace std;
-bool CustomerID() {
-	ifstream fin;
-	string customerid, digit;
-	int count = 0, j = 0;
-	bool check;
-	cout << "Enter Customer ID" << endl;
-	cin >> customerid;
-	fin.open("customersinfo.txt");
-	while (getline(fin, digit)) {
-		for (int i = 0; digit[i] != fin.eof(); )
-		{
-			if (digit[i] == customerid[j] && digit[i] != ',') {
-				count++;
-				j++;
-				i++;
-				if (count == 4) {
-					return true;
-				}
-			}
-			else {
-				i++;
-
-			}
-		}
-		return false;
-	}
-}
-int main() {
-	ifstream fin;
-	bool check = CustomerID();
-	if (check) {
-		fin.open("Billinginfo.txt");
-		string character;
-		while (getline(fin, character)) {
-			cout << character;
-		}
-	}
-	else {
-		cout << "Customer ID is Incorrect" << endl;
-	}
-	system("pause");
-	return 0;
-}
+//#include<iostream>
+//#include<fstream>
+//#include<string>
+//#include <cstdlib>
+//using namespace std;
+//
+//void Read() {
+//	ifstream fin;
+//	string digit, store;
+//	string ar[4];
+//	char a[8],b[8];
+//	fin.open("nadrab.txt");
+//
+//	short loop = 0;
+//	if (fin.is_open()) {
+//		while (!fin.eof()) {
+//			getline(fin, digit);
+//			ar[loop] = digit;
+//
+//			//cout << ar[loop];
+//			loop++;
+//			 
+//		}cout << endl;			
+//		for (int i = 0; i < 4; i++) {
+//
+//		}
+//		for (int i = 0, j = 0, k = 0, count = 0;ar[0][i]!=' ' ; i++)
+//		{
+//			if (ar[0][i] == '/') {
+//				k = i;
+//				k++;
+//				a[j] = ar[0][k];
+//				j++;
+//				i++;
+//				count++;
+//				if (ar[0][i] != '/') {
+//					k++;
+//					a[j] = ar[0][k];
+//					j++;
+//				}if(count==2)
+//				break;
+//			}
+//		}
+//		for (int i = 0, count1 = 0, k = 0, j = 0; ar[0][i] != ' '; i++) {
+//			if (ar[0][i] == ',') {
+//				count1++;
+//				
+//			}if (count1 == 2) {
+//				//cout << "found second coma";
+//				k = i;
+//				k++;
+//				//cout << ar[0][k];
+//				if (ar[0][k] == '/') {
+//					//cout << "fount backslash";
+//					i = k;
+//					k++;
+//					b[j] = ar[0][k];
+//					j++;
+//					i++;
+//
+//					if (ar[0][i] != '/') {
+//						k++;
+//						b[j] = ar[0][k];
+//						j++;
+//					}
+//				}
+//			}
+//			
+//		}
+//		
+//		int m = atoi(b);
+//		
+//		int l = atoi(a);
+//		if (l < m) {
+//			cout << " Expired";
+//		}
+//		//cout << endl << l;
+//		/*for (int i = 0; ar[0][i]!=' ';i++) {
+//			
+//			if (ar[0][i]=='/') {
+//				
+//			}
+//			else {
+//				i++;
+//			}
+//		}*/
+//	}
+//	else {
+//		cout << "not";
+//	}
+//}
+//
+//int main() {
+//	Read();
+//}
